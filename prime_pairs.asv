@@ -1,6 +1,4 @@
-%Assignment 1 
-%Question 4
-%To call the function, type out prime_pairs(args) where args = integer 
+%
 
 function p = prime_pairs(n)
     p = primes(1e5);
