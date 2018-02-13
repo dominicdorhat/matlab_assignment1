@@ -44,6 +44,10 @@ function cost = LongTerm(w, d, h, m)
     %if daily maximum is reached
     if hours >= 8
         cost = w*52+ d*8 + 8;
+        
+    %if all input is 0    
+    elseif w == 0 && d == 0 && h == 0 && m == 0
+        cost = 0;
     else
         cost = w*52 + d*8 + 1.5 + (hours-1)*1;
     end
@@ -59,6 +63,10 @@ function balance = ShortTerm(w, d, h, m)
     %if daily maximum is reached
     if minutes_price >= 35
         balance = (week_price*w) + (35*d);
+        
+    %if all input is 0
+    elseif w == 0 && d == 0 && h == 0 && m == 0
+        balance = 0;        
     else 
         balance = (week_price*w) + (35*d) + minutes_price;
     end
