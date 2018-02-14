@@ -5,7 +5,8 @@
 %This function takes a row vector and returns a matrix whose first column
 %   is the elements of the row vector, the second column the squares of the
 %   row vector, and the third column as the cubes of the row vector
-%To call the function, type out 'bulk(v)' where v is a row vector
+%To call the function, type out 'bulk(v)' where v is a row vector,
+%Example: bulk(1:3)
 
 %Input: v as a row vector
 %Output: B as a matrix

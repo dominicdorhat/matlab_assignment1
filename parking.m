@@ -7,11 +7,12 @@
 %   calculates the parking fee then displays the calculated amount.
 %To run the program, type out 'parking' and a pop-up menu will appear, after selecting 
 %   follow the onscreen instructions
+%Functions are defined in separate m-files, 'LongTerm.m' and 'ShortTerm.m'
    
-
-%Input: lot as a menu to indicate parking type, and weeks, days, hours and
-%       minutes as integers
-%Output: bill as a floating point
+%Input: 'lot' as a menu to indicate parking type, and 'weeks', 'days', 'hours' and
+%       'minutes' as integers
+%Output: 'bill' as a floating point
+%Functions: ShorTerm, LongTerm
 
 lot = menu('Enter parking lot type:', 'Long Term', 'Short Term');
 weeks = input('How many weeks: ');
@@ -36,38 +37,4 @@ switch lot
 end 
 
 
-function cost = LongTerm(w, d, h, m)
-    
-    %convert minutes to hours, and rounds up to the nearest integer
-    hours = ceil(h + (m/60));
-    
-    %if daily maximum is reached
-    if hours >= 8
-        cost = w*52+ d*8 + 8;
-        
-    %if all input is 0    
-    elseif w == 0 && d == 0 && h == 0 && m == 0
-        cost = 0;
-    else
-        cost = w*52 + d*8 + 1.5 + (hours-1)*1;
-    end
-end
 
-function balance = ShortTerm(w, d, h, m)
-   
-    %converts hours to minutes, and rounds up to nearest integer
-    minutes = (((h*60) + m)-30);
-    minutes_price = ceil(minutes/20)*1.5;
-    week_price = 7 * 35;
-    
-    %if daily maximum is reached
-    if minutes_price >= 35
-        balance = (week_price*w) + (35*d);
-        
-    %if all input is 0
-    elseif w == 0 && d == 0 && h == 0 && m == 0
-        balance = 0;        
-    else 
-        balance = (week_price*w) + (35*d) + minutes_price;
-    end
-end
